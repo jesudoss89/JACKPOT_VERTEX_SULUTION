@@ -38,7 +38,7 @@ html{
 scroll-behavior:smooth;
 }
 
-/* HEADER */
+/* HEADER WITH FLEX WRAP FOR RESPONSIVENESS */
 header{
 background:linear-gradient(135deg,#0066ff,#00bfff);
 color:white;
@@ -50,6 +50,8 @@ position:sticky;
 top:0;
 z-index:1000;
 box-shadow: 0 4px 20px rgba(0, 102, 255, 0.15);
+flex-wrap: wrap; /* Prevents overflow/disorder by folding rows if needed */
+gap: 15px;
 }
 
 .logo{
@@ -66,10 +68,16 @@ border:3px solid white;
 box-shadow:0 0 15px rgba(255,255,255,0.5);
 }
 
+nav{
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap: 20px;
+}
+
 nav a{
 color:white;
 text-decoration:none;
-margin-left:20px;
 font-weight:600;
 position: relative;
 padding: 5px 0;
@@ -126,6 +134,7 @@ justify-content:center;
 text-align:center;
 color:white;
 position: relative;
+padding: 0 20px;
 }
 
 .hero-content h1{
@@ -171,7 +180,7 @@ transform:scale(1.05) translateY(-2px);
 box-shadow:0 10px 25px rgba(0,102,255,.4);
 }
 
-/* STATS - SUBTLE HOVER EFFECT */
+/* STATS */
 .stats{
 padding:80px 10% 40px 10%;
 display:grid;
@@ -208,7 +217,7 @@ font-weight: 800;
 color: #666;
 }
 
-/* SERVICES SECTION - PROFESSIONAL SUBTLE GLOW */
+/* SERVICES SECTION */
 .services{
 padding:60px 10% 80px 10%;
 background: transparent;
@@ -240,7 +249,6 @@ box-shadow: 0 8px 25px rgba(0, 102, 255, 0.03);
 transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-/* Fixed harsh flash: Now transitions to elegant soft border & light shadow lift */
 .service-card:hover{
 transform: translateY(-6px);
 border-color: rgba(0, 102, 255, 0.35);
@@ -271,7 +279,7 @@ color: #555;
 line-height: 1.6;
 }
 
-/* LEADERSHIP SECTION - SUBTLE ACCENT LINES */
+/* LEADERSHIP SECTION */
 .team-section {
 padding: 80px 10%;
 text-align: center;
@@ -335,7 +343,7 @@ max-width: 560px;
 margin: 0 auto;
 }
 
-/* CONTACT BOX GRID - SOFT HIGH CONTRAST HOVER EFFECT */
+/* CONTACT BOX GRID */
 .contact{
 background: linear-gradient(135deg, #0052cc, #00a3cc);
 color:white;
@@ -360,10 +368,9 @@ transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s 
 text-align: center;
 }
 
-/* Fixed over-bright transition: Moves into smooth deep royal solid plate instead of jarring white */
 .contact-box-card:hover {
 transform: translateY(-6px);
-background: #003a94; /* Premium dark accent theme response */
+background: #003a94;
 border-color: rgba(255, 255, 255, 0.5);
 box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
@@ -371,7 +378,7 @@ box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 .contact-box-card:hover h3, 
 .contact-box-card:hover p, 
 .contact-box-card:hover i {
-color: #ffffff !important; /* Preserves solid pristine clarity on hover */
+color: #ffffff !important;
 }
 
 .contact-box-card i {
@@ -404,6 +411,64 @@ letter-spacing: 0.5px;
 border-top: 1px solid rgba(255,255,255,0.05);
 }
 
+/* ==========================================================================
+   ADVANCED RESPONSIVE MEDIA QUERIES (MOBILE OMNI-ADAPTIVE BREAKPOINTS)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px 5%;
+        flex-direction: column; /* Stacks logo and nav navigation buttons straight vertical row */
+        justify-content: center;
+        text-align: center;
+    }
+    
+    nav {
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    nav a {
+        font-size: 15px;
+        margin-left: 0; /* Clear horizontal left margins for auto balance alignment */
+    }
+
+    .hero-content h1 {
+        font-size: 36px; /* Resizes giant text to avoid mobile bounding overlaps */
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .title {
+        font-size: 32px;
+        margin-bottom: 35px;
+    }
+
+    .stats, .services, .team-section, .contact {
+        padding: 50px 5%; /* Tightens screen paddings so content spans cleanly without tight squishing */
+    }
+    
+    .member-block img {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        gap: 10px 15px; /* Tiny stacked column grid wrap interface for ultra narrow screens */
+    }
+    
+    nav a {
+        font-size: 14px;
+    }
+    
+    .hero-content h1 {
+        font-size: 28px;
+    }
+}
 </style>
 </head>
 <body>
