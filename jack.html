@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jackpot Vertex Solution</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(-45deg,#ffffff,#e6f0ff,#d9ecff,#ffffff);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+color:#333;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+.contact{
+padding:80px 10%;
+background:#f9fbff;
+}
+/* HEADER */
+
+header{
+background:linear-gradient(135deg,#0066ff,#00bfff);
+color:white;
+padding:20px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+}
+
+.logo img{
+width:80px;
+height:80px;
+border-radius:40%;
+object-fit:cover;
+border:3px solid white;
+box-shadow:0 0 15px rgba(255,255,255,0.5);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:600;
+}
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+width:65px;
+height:65px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+color:white;
+text-decoration:none;
+box-shadow:0 5px 20px rgba(0,0,0,.3);
+z-index:9999;
+animation:float 2s infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+/* HERO */
+
+.hero{
+height:90vh;
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+url('https://images.unsplash.com/photo-1497366754035-f200968a6e72');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero-content h1{
+font-size:55px;
+margin-bottom:20px;
+animation:fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.hero-content p{
+font-size:20px;
+margin-bottom:20px;
+}
+
+.btn{
+background:linear-gradient(135deg,#0066ff,#00bfff);
+padding:15px 35px;
+border-radius:50px;
+color:white;
+font-weight:bold;
+text-decoration:none;
+box-shadow:0 0 20px rgba(0,191,255,.5);
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+/* STATS */
+
+.stats{
+padding:60px 10%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+text-align:center;
+}
+
+.stat-box{
+background:#f5f8ff;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.stat-box h2{
+color:#0066ff;
+font-size:40px;
+}
+
+/* SERVICES */
+
+.services{
+padding:80px 10%;
+background:#f9fbff;
+}
+
+.title{
+text-align:center;
+font-size:40px;
+margin-bottom:50px;
+color:#0066ff;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.service-card{
+background:rgba(70, 135, 219, 0.8);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.4);
+padding:30px;
+border-radius:20px;
+box-shadow:0 8px 25px rgba(0,102,255,0.15);
+transition:0.4s;
+}
+
+.service-card:hover{
+transform:translateY(-12px) scale(1.03);
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+}
+
+.service-card i{
+font-size:50px;
+color:#eef0f3;
+margin-bottom:15px;
+}
+
+.service-card h3{
+margin-bottom:10px;
+}
+
+/* CEO */
+
+.ceo{
+padding:80px 10%;
+text-align:center;
+}
+
+.ceo img{
+width:250px;
+height:250px;
+border-radius:30%;
+object-fit:cover;
+margin-bottom:20px;
+border:6px solid #0066ff;
+}
+
+.ceo h2{
+color:#0066ff;
+margin-bottom:10px;
+}
+
+/* CONTACT */
+
+.contact{
+background:linear-gradient(135deg,#0066ff,#00bfff);
+color:white;
+padding:80px 10%;
+}
+
+.contact-box{
+max-width:800px;
+margin:auto;
+}
+
+.contact-box p{
+margin:15px 0;
+font-size:18px;
+}
+
+footer{
+background:#003399;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="logo">
+<img src="logo.jpeg" height="80">
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#ceo">CEO</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+<h1>Jackpot Vertex Solution</h1>
+
+<p>Innovative Digital Solutions For Modern Businesses</p>
+
+<a href="#services" class="btn">Explore Services</a>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="stat-box">
+<h2>5+</h2>
+<p>Projects Completed</p>
+</div>
+
+<div class="stat-box">
+<h2>20+</h2>
+<p>Employees</p>
+</div>
+
+<div class="stat-box">
+<h2>2+</h2>
+<p>Years Experience</p>
+</div>
+
+</section>
+
+<section class="services" id="services">
+
+<h1 class="title">Our Services</h1>
+
+<div class="service-grid">
+
+<div class="service-card">
+<i class="fas fa-laptop-code"></i>
+<h3>Website Designing</h3>
+<p>
+Professional, responsive and SEO-friendly websites designed
+to elevate your business presence and attract more customers.
+</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-palette"></i>
+<h3>Image Designing</h3>
+<p>
+Creative logo design, social media posts, banners,
+advertisements and branding materials tailored for your business.
+</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-mobile-alt"></i>
+<h3>Mobile App Development</h3>
+<p>
+Modern Android and iOS applications with smooth performance,
+secure architecture and user-friendly interfaces.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="ceo" id="ceo">
+
+<img src="Coe.jpeg" alt="CEO">
+
+<h2>JESUDOSS K</h2>
+
+<p>
+Founder & CEO of Jackpot Vertex Solution.
+Leading innovative digital transformation through
+web development, mobile applications and creative branding.
+</p>
+
+</section>
+
+<section class="contact" id="contact">
+
+<h1 class="title">Contact Us</h1>
+
+<div class="service-grid">
+
+<div class="service-card">
+<i class="fas fa-phone-alt"></i>
+<h3>Phone Number</h3>
+<p>+91 8148719622</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-envelope"></i>
+<h3>Email Address</h3>
+<p>dossj7856@gmail.com</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-location-dot"></i>
+<h3>Office Address</h3>
+<p>
+No 807, Aginespuram,<br>
+Koovathoor (Post),<br>
+Jayankondam (TK),<br>
+Ariyalur (DT) - 621803
+</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-clock"></i>
+<h3>Opening Hours</h3>
+<p>8:00 AM - 9:00 PM</p>
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Jackpot Vertex Solution. All Rights Reserved.
+
+</footer>
+<a href="https://wa.me/918148719622?text=Hello%20Jackpot%20Vertex%20Solution,%20I%20need%20your%20services." class="whatsapp" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+</body>
+</html>
